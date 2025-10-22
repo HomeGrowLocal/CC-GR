@@ -1,0 +1,17 @@
+name: Update Campingdaten
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Node.js installieren
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Abhängigkeiten installieren
+        run: npm install
+      - name: Update-Skript ausführen
+        run: node update/update.js
