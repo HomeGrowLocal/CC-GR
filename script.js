@@ -6,19 +6,4 @@ fetch('data/campingplaetze.json').then(res => res.json()).then(data => {
     marker.bindPopup(`<b>${platz.name}</b><br>${platz.ort}<br>Bewertung: ${platz.bewertung}<br><button onclick="showDetails('${platz.id}')">Details</button>`);
   });
 });
-function showDetails(id) {
-  fetch('data/details/' + id + '.json').then(res => res.json()).then(data => {
-    alert(`Name: ${data.name}
-Adresse: ${data.adresse}
-Telefon: ${data.telefon}
-Website: ${data.website}
-Email: ${data.email}
-
-Preise Hochsaison:
-Wohnwagen: ${data.preise.wohnwagen} €
-Erwachsene: ${data.preise.erwachsene} €
-Kinder: ${data.preise.kinder} €
-Strom: ${data.preise.strom} €
-Gesamt: ${data.preise.gesamt} €`);
-  });
-}
+function showDetails(id) { alert('Details für Platz ' + id); }
